@@ -1,0 +1,4 @@
+for i in df.columns:
+    eda(df[i])
+    
+    # here df represents my dataframe and eda is the function
