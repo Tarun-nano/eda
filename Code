@@ -45,21 +45,25 @@ def eda(col):
     print("************************************Bivariate Analysis**************************************************")
     print()
     print()
-    fig = plt.figure(figsize=(10,5))
-    plt.subplot(121)
-    sns.scatterplot(x=col,y=sha)
-    if col.nunique()<=5:
-        plt.subplot(122)
-        sns.countplot(col)        
-        print(tabulate(pd.DataFrame(col.value_counts().head())))
+    fig = plt.figure(figsize=(30,5))
+    plt.subplot(131)
+    sns.scatterplot(x=col,y=y)
+    if col.nunique()<=24:
+        plt.subplot(132)
+        sns.countplot(col)
+        plt.subplot(133)
+        sns.boxplot(col,y)
+        print(pd.DataFrame(col.value_counts().head()))
         print()
         print()        
     plt.show()
-    temp=col.corr(sha)
+    temp=col.corr(y)
     print()
     print()
     print("The Corelation between Target Column and Input Column is : ",temp)
     print()
     print()
 
+ 
+    
     
